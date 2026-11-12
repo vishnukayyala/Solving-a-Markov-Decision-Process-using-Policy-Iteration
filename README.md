@@ -17,8 +17,8 @@ Policy Iteration is used to evaluate the current policy and improve it repeatedl
 
 The main objectives are:
 
-1. Calculate the optimal state-value function \(V^*(s)\).
-2. Determine the optimal policy \(\pi^*(s)\).
+1. Calculate the optimal state-value function V*(s).
+2. Determine the optimal policy pi*(s).
 3. Find the best action for each state to maximize the expected discounted reward.
 
 ## Software Requirements
@@ -41,12 +41,12 @@ The experiment uses the Gymnasium `FrozenLake-v1` environment.
 
 FrozenLake is a grid-world environment in which an agent moves across frozen tiles to reach a goal while avoiding holes.
 
-The default environment contains a 4 × 4 grid.
+The default environment contains a 4 x 4 grid.
 
 | Component | Description |
 |---|---|
 | Environment | FrozenLake-v1 |
-| Map size | 4 × 4 |
+| Map size | 4 x 4 |
 | Observation space | 16 discrete states |
 | Action space | 4 discrete actions |
 | Action 0 | Left |
@@ -89,36 +89,36 @@ Policy evaluation calculates the value of each state under the current policy.
 
 The Bellman expectation equation is:
 
-\[
-V^\pi(s)=\sum_a\pi(a|s)
-\sum_{s'}P(s'|s,a)
-[R(s,a,s')+\gamma V^\pi(s')]
-\]
+```text
+V(s) = SUM over actions [ pi(a|s) *
+       SUM over next states [ P(s'|s,a) *
+       (R(s,a,s') + gamma * V(s')) ] ]
+```
 
 Where:
 
 | Symbol | Meaning |
 |---|---|
-| \(s\) | Current state |
-| \(a\) | Selected action |
-| \(s'\) | Next state |
-| \(\pi(a|s)\) | Probability of selecting an action |
-| \(P(s'|s,a)\) | Transition probability |
-| \(R(s,a,s')\) | Immediate reward |
-| \(\gamma\) | Discount factor |
-| \(V^\pi(s)\) | Value of state under the current policy |
+| s | Current state |
+| a | Selected action |
+| s' | Next state |
+| pi(a\|s) | Probability of selecting an action |
+| P(s'\|s,a) | Transition probability |
+| R(s,a,s') | Immediate reward |
+| gamma | Discount factor |
+| V(s) | Value of state under the current policy |
 
 The algorithm repeatedly updates the state values until the maximum change between consecutive iterations becomes smaller than a predefined threshold.
 
-\[
-\Delta=\max_s|V_{\text{new}}(s)-V_{\text{old}}(s)|
-\]
+```text
+Delta = MAX over all states |New V(s) - Old V(s)|
+```
 
 When:
 
-\[
-\Delta<\theta
-\]
+```text
+Delta < theta
+```
 
 the policy evaluation process is considered converged.
 
@@ -128,11 +128,13 @@ Policy improvement updates the current policy by selecting the action that provi
 
 The improved policy is:
 
-\[
-\pi'(s)=\arg\max_a
-\sum_{s'}P(s'|s,a)
-[R(s,a,s')+\gamma V^\pi(s')]
-\]
+```text
+pi_new(s) = ARGMAX over actions [
+    SUM over next states [
+        P(s'|s,a) * (R(s,a,s') + gamma * V(s'))
+    ]
+]
+```
 
 The algorithm compares the old policy with the improved policy.
 
@@ -286,7 +288,7 @@ Optimal Policy:
  ['L' 'D' 'R' 'U']]
 ```
 
-The values and actions shown above are placeholders illustrating the output format. The actual results are calculated when the program is executed.
+The values and actions are placeholders showing the output format. The actual results are calculated when the program is executed.
 
 **Action symbols:**
 
