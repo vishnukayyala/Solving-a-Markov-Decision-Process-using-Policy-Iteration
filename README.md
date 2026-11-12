@@ -266,26 +266,21 @@ env.close()
 
 ## Output
 
-The program displays the total number of policy iterations, the optimal state-value function, and the optimal policy.
-
-**Expected output format:**
-
-```text
-Total Policy Iterations: [Calculated by program]
+```
+Total Policy Iterations: 5
 
 Optimal State-Value Function:
-
-[[0.0000 0.0000 0.0000 0.0000]
- [0.0000 0.0000 0.0000 0.0000]
- [0.0000 0.0000 0.0000 0.0000]
- [0.0000 0.0000 0.0000 0.0000]]
+[[0.542  0.4988 0.4707 0.4569]
+ [0.5585 0.     0.3583 0.    ]
+ [0.5918 0.6431 0.6152 0.    ]
+ [0.     0.7417 0.8628 0.    ]]
 
 Optimal Policy:
+[['L' 'U' 'U' 'U']
+ ['L' 'L' 'L' 'R']
+ ['U' 'D' 'L' 'U']
+ ['R' 'R' 'D' 'D']]
 
-[['L' 'D' 'R' 'U']
- ['L' 'D' 'R' 'U']
- ['L' 'D' 'R' 'U']
- ['L' 'D' 'R' 'U']]
 ```
 
 The values and actions are placeholders showing the output format. The actual results are calculated when the program is executed.
